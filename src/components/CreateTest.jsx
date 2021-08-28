@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { addQuestion } from "../api/questionApi";
+import { Heading, Center } from "@chakra-ui/react"
 
 export const CreateTest = () => {
   const { user } = useAuth();
@@ -70,67 +71,75 @@ export const CreateTest = () => {
   };
 
   return (
-    <Box as="form" p={20} onSubmit={handleSubmit}>
-      <FormControl id="problem">
-        <FormLabel>問題文</FormLabel>
-        <Input
-          name="problem"
-          value={problem}
-          placeholder="問題文"
-          onChange={handleChangePloblem}
-        />
-      </FormControl>
-      <HStack>
-        <FormControl id="choices">
-          <FormLabel>選択肢</FormLabel>
-          <VStack>
-            <Input
-              name="choiceA"
-              value={choiceA}
-              placeholder="選択肢A"
-              onChange={handleChangeChoiceA}
-            />
-            <Input
-              name="choiceB"
-              value={choiceB}
-              placeholder="選択肢B"
-              onChange={handleChangeChoiceB}
-            />
-            <Input
-              name="choiceC"
-              value={choiceC}
-              placeholder="選択肢C"
-              onChange={handleChangeChoiceC}
-            />
-            <Input
-              name="choiceD"
-              value={choiceD}
-              placeholder="選択肢D"
-              onChange={handleChangeChoiceD}
-            />
-          </VStack>
+    <>
+      <Center background={"aqua"} height={"200px"}>
+        <Heading background={"aqua"} >問題作成</Heading>
+      </Center>
+      <Box marginLeft="25px">
+      <p><font size="5">教科：日本史　学年：中学3年生</font></p> 
+      </Box>
+      <Box as="form" p={20} onSubmit={handleSubmit}>
+        <FormControl id="problem">
+          <FormLabel>問題文</FormLabel>
+          <Input
+            name="problem"
+            value={problem}
+            placeholder="問題文"
+            onChange={handleChangePloblem}
+          />
         </FormControl>
-        <Spacer />
-        <VStack>
-          <FormControl id="result">
-            <FormLabel>解答</FormLabel>
-            <Input
-              name="result"
-              value={result}
-              placeholder="解答"
-              onChange={handleChangeResult}
-            />
+        <HStack>
+          <FormControl id="choices">
+            <FormLabel>選択肢</FormLabel>
+            <VStack>
+              <Input
+                name="choiceA"
+                value={choiceA}
+                placeholder="選択肢A"
+                onChange={handleChangeChoiceA}
+              />
+              <Input
+                name="choiceB"
+                value={choiceB}
+                placeholder="選択肢B"
+                onChange={handleChangeChoiceB}
+              />
+              <Input
+                name="choiceC"
+                value={choiceC}
+                placeholder="選択肢C"
+                onChange={handleChangeChoiceC}
+              />
+              <Input
+                name="choiceD"
+                value={choiceD}
+                placeholder="選択肢D"
+                onChange={handleChangeChoiceD}
+              />
+            </VStack>
           </FormControl>
-          <Button
-            mt={4}
-            colorScheme="teal"
-            // isLoading={props.isSubmitting}
-            type="submit"
-          >
-            問題を登録
-          </Button>
-        </VStack>
-      </HStack>
-    </Box>
+          <Spacer />
+          <VStack>
+            <FormControl id="result">
+              <FormLabel>解答</FormLabel>
+              <Input
+                name="result"
+                value={result}
+                placeholder="解答"
+                onChange={handleChangeResult}
+              />
+            </FormControl>
+            <Button
+              mt={4}
+              colorScheme="teal"
+              // isLoading={props.isSubmitting}
+              type="submit"
+            >
+              問題を登録
+            </Button>
+          </VStack>
+        </HStack>
+      </Box>
+    </>
   );
 };
