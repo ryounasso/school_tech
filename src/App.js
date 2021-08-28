@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { AuthProvider } from "./auth/AuthProvider";
 import { CreateTest } from "./components/CreateTest";
 import { TestView } from "./components/TestView";
+import { Answer } from "./components/Answer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/createTest" component={CreateTest} />
           <Route exact path="/testView" component={TestView} />
+          <Route exact path="/answer" component={Answer} />
         </Router>
       </AuthProvider>
     </ChakraProvider>
