@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./auth/PravateRoute";
 import Home from "./components/Home";
 import { AuthProvider } from "./auth/AuthProvider";
+import { CreateTest } from "./components/CreateTest";
+import { TestView } from "./components/TestView";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/createTest" component={CreateTest} />
+          <Route exact path="/testView" component={TestView} />
         </Router>
       </AuthProvider>
     </ChakraProvider>
