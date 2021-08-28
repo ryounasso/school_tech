@@ -1,18 +1,10 @@
 import React, { useContext } from "react";
-import { AuthContext } from "./AuthProvider";
 import { withRouter } from "react-router";
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { AuthContext } from "./AuthProvider";
 
 const SignUp = ({ history }) => {
   const { signup } = useContext(AuthContext);
-
+  // AuthContextからsignup関数を受け取る
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
@@ -20,11 +12,20 @@ const SignUp = ({ history }) => {
   };
 
   return (
-    <FormControl id="email">
-      <FormLabel onSubmit={handleSubmit}>Email address</FormLabel>
-      <Input type="email" />
-      <FormHelperText>We'll never share your email.</FormHelperText>
-    </FormControl>
+    <div>
+      <h1>Sign up</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
   );
 };
 

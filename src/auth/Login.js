@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Box } from "@chakra-ui/react";
-import { AuthContext } from "./AuthProvider";
 import { withRouter } from "react-router";
+import { AuthContext } from "./AuthProvider";
 
-const Login = (history) => {
+const Login = ({ history }) => {
   const { login } = useContext(AuthContext);
+
+  // AuthContextからlogin関数を受け取る
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
@@ -12,9 +13,20 @@ const Login = (history) => {
   };
 
   return (
-    <Box>
-      <div>ようこそschool Tehcへ</div>
-    </Box>
+    <div>
+      <h1>Log in</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Log in</button>
+      </form>
+    </div>
   );
 };
 
