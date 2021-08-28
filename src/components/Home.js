@@ -13,6 +13,7 @@ function Home(props) {
       <Box>
         <Link to={"/createTest"}>問題を作成する</Link>
         <Link to={"/testView"}>問題を見る</Link>
+        <Link to={"/answer"}>問題に回答する</Link>
       </Box>
     </VStack>
   );
