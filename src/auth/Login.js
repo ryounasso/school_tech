@@ -3,9 +3,9 @@ import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
 import { Box, Button, Stack, Hstack, VStack } from "@chakra-ui/react"
 import './Login.css';
+
 const Login = ({ history }) => {
   const { login } = useContext(AuthContext);
-
   // AuthContextからlogin関数を受け取る
   const handleSubmit = (event) => {
     event.preventDefault();
