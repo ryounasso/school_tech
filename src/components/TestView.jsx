@@ -18,10 +18,10 @@ export const TestView = () => {
 
   return (
     <>
-      <Center background={"aqua"} height={"200px"}>
-        <Heading background={"aqua"} >問題一覧</Heading>
+      <Center background={"cornflowerblue"} height={"200px"}>
+        <Heading><font size='7'>問題一覧</font></Heading>
       </Center>
-      <Box marginLeft="25px">
+      <Box marginLeft="25px" marginTop="20px" marginBottom="10px">
       <p><font size="5">教科：日本史　学年：中学3年生</font></p> 
       </Box>
       <VStack spacing={8}>
