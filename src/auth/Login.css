@@ -2,3 +2,23 @@ h1 {
     text-align: center;
     font-size: 48px;
 }
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+  .btn {  
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+  }
+  .btn:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #0808e2;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+  }
