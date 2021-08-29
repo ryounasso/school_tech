@@ -8,7 +8,6 @@ import { AuthProvider } from "./auth/AuthProvider";
 import { CreateTest } from "./components/CreateTest";
 import { TestView } from "./components/TestView";
 import { Answer } from "./components/Answer";
-
 function App() {
   return (
     <ChakraProvider>

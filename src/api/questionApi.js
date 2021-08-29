@@ -30,3 +30,27 @@ export const getQuestion = async () => {
   }));
   return data;
 };
+
+export const getQuestionFilterdById = async (id) => {
+  // const snapShot = await db.collection("question").doc(id).get();
+  const snapShot = await db.collection("question").doc(id).get();
+  return snapShot.data().result;
+  // snapShot.then((doc) => {
+  //   result = doc.data().result;
+  //   return result;
+  // });
+  // console.log(result);
+  // console.log(snapShot.docs);
+  // const data = snapShot.docs.map({
+  //   problem: doc.data().problem,
+  //   choiceA: doc.data().choiceA,
+  //   choiceB: doc.data().choiceB,
+  //   choiceC: doc.data().choiceC,
+  //   choiceD: doc.data().choiceD,
+  //   result: doc.data().result,
+  //   good_point: doc.data().good_point,
+  //   createdAt: doc.data().createAt.toDate(),
+  //   id: doc.id,
+  // });
+  // return result;
+};
