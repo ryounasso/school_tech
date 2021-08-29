@@ -8,10 +8,12 @@ import {
   HStack,
   Spacer,
   Button,
+  Heading,
+  Center
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { addQuestion } from "../api/questionApi";
-import { Heading, Center } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const CreateTest = () => {
   const { user } = useAuth();
@@ -73,9 +75,20 @@ export const CreateTest = () => {
       <Center background={"cornflowerblue"} height={"200px"}>
         <Heading ><font size="7">問題作成</font></Heading>
       </Center>
-      <Box marginLeft="25px">
-      <p><font size="5">教科：日本史　学年：中学3年生</font></p> 
-      </Box>
+      <HStack spacing="24px">
+        <Box marginLeft="25px">
+          <p><font size="5">教科：日本史　学年：中学3年生</font></p>
+        </Box>
+        <Box as="Button" w="200px" h="40px" bg="yellow.200">
+          <Link to={"/testview"}><font size="3">問題一覧</font></Link>
+        </Box>
+        <Box as="Button" w="200px" h="40px" bg="tomato">
+          <Link to={"/answer"}><font size="3">回答ページプレビュー</font></Link>
+        </Box>
+        <Box as="Button" w="200px" h="40px" bg="pink.100">
+          <Link to={"/"}><font size="3">Homeに戻る</font></Link>
+        </Box>
+      </HStack>
       <Box as="form" p={20} onSubmit={handleSubmit}>
         <FormControl id="problem">
           <FormLabel>問題文</FormLabel>
