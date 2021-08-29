@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
-import { Box, Button, Stack, Hstack, VStack } from "@chakra-ui/react"
+import { Box, VStack } from "@chakra-ui/react"
+import { Link } from "react-router-dom";
 import './Login.css';
 
 const Login = ({ history }) => {
@@ -23,7 +24,7 @@ const Login = ({ history }) => {
           align="center"
           padding="270px"
         >
-          <h1>Log in</h1>
+          <h1><font size="7">Log in</font></h1>
           <label>
             <p>Email</p>
             <input name="email" type="email" placeholder="Email" />
@@ -33,6 +34,12 @@ const Login = ({ history }) => {
             <input name="password" type="password" placeholder="Password" />
           </label>
           <button type="submit" className="btn">Log in</button>
+          <dev className="signup">
+            <p><b>アカウントをお持ちでない方</b></p>
+            <Box as="Button" rounded={0} h="40px" w="200px" bg="#38A3A5" marginTop="10px" _hover={{background: "#ffffff",color: "#0808e2"}}>
+              <Link to={"/SignUp"}>Sign Up</Link>
+            </Box>
+          </dev>         
         </VStack>
       </form>
     </Box>
