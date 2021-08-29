@@ -32,7 +32,7 @@ const Login = ({ history }) => {
             <p>Password</p>
             <input name="password" type="password" placeholder="Password" />
           </label>
-          <button type="submit">Log in</button>
+          <button type="submit" className="btn">Log in</button>
         </VStack>
       </form>
     </Box>
