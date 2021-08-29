@@ -8,7 +8,13 @@ import { AuthProvider } from "./auth/AuthProvider";
 import { CreateTest } from "./components/CreateTest";
 import { TestView } from "./components/TestView";
 import { Answer } from "./components/Answer";
+import React, { useEffect } from "react";
+
 function App() {
+  useEffect(() => {
+    document.title = "School Tech";
+  }, []);
+
   return (
     <ChakraProvider>
       <AuthProvider>
