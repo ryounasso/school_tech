@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  Box,
-  VStack,
-  Heading,
-  Center,
-  HStack,
-  Text,
-  useDisclosure,
-  ScaleFade,
-} from "@chakra-ui/react";
+import {Box, VStack, Heading, Center, HStack, Text, useDisclosure,
+  ScaleFade,} from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { getQuestion } from "../api/questionApi";
 import { Question } from "./Question";
@@ -62,16 +54,17 @@ export const Answer = () => {
   const ScaleFadeEx = () => {
     return (
       <>
-        <ScaleFade initialScale={0.9} in={isOpen}>
+        <ScaleFade initialScale={0.1} in={isOpen}>
           <Box
-            p="40px"
+            p="30px"
+            // w="30px"
             color="white"
             mt="4"
-            bg="teal.500"
+            bg="red.500"
             rounded="md"
             shadow="md"
           >
-            Good!!!
+            <i>Good!!!</i>
           </Box>
         </ScaleFade>
       </>
@@ -82,10 +75,10 @@ export const Answer = () => {
 
   return (
     <>
-      <Center background={"aqua"} height={"200px"}>
-        <Heading background={"aqua"}>問題回答</Heading>
+      <Center background={"cornflowerblue"} height={"200px"}>
+        <Heading><font size='7'>問題回答</font></Heading>
       </Center>
-      <Box marginLeft="25px">
+      <Box marginLeft="25px" marginTop="10px" marginBottom="15px">
         <p>
           <font size="5">教科：日本史　学年：中学3年生</font>
         </p>
