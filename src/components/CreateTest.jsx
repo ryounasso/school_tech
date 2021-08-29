@@ -3,8 +3,6 @@ import {
   Box,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   VStack,
   HStack,
@@ -72,8 +70,8 @@ export const CreateTest = () => {
 
   return (
     <>
-      <Center background={"aqua"} height={"200px"}>
-        <Heading background={"aqua"} >問題作成</Heading>
+      <Center background={"cornflowerblue"} height={"200px"}>
+        <Heading ><font size="7">問題作成</font></Heading>
       </Center>
       <Box marginLeft="25px">
       <p><font size="5">教科：日本史　学年：中学3年生</font></p> 
