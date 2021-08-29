@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { addQuestion } from "../api/questionApi";
-import { Heading, Center } from "@chakra-ui/react"
+import { Heading, Center } from "@chakra-ui/react";
 
 export const CreateTest = () => {
   const { user } = useAuth();
