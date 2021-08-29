@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Box, VStack, Heading, Center, HStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  VStack,
+  Heading,
+  Center,
+  HStack,
+  Text,
+  useDisclosure,
+  ScaleFade,
+} from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { getQuestion } from "../api/questionApi";
 import { Question } from "./Question";
-import { createBrowserHistory } from "history";
 
 export const Answer = () => {
   const [tests, setTests] = useState([]);
   const [responseNumber, setResponseNumber] = useState(0);
   const [correctNumber, setCorrectNumber] = useState(0);
-  const [score, setScore] = useState(0);
-  const history = createBrowserHistory();
+  const [toggleFlag, seToggleFlag] = useState(false);
+  const { isOpen, onToggle } = useDisclosure();
+
+  const [kais, setKai] = useState(0);
 
   let flag;
   useEffect(() => {
@@ -19,6 +29,16 @@ export const Answer = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (toggleFlag === true) {
+      onToggle();
+    }
+  }, [toggleFlag]);
+
+  useEffect(() => {
+    setKai(calc());
+  }, [correctNumber]);
+
   if (tests !== []) {
     flag = 1;
   }
@@ -26,7 +46,36 @@ export const Answer = () => {
   const calc = () => {
     const correctAnswer = parseInt(correctNumber);
     const kai = correctAnswer * 5;
+    createGood();
     return kai;
+  };
+
+  const createGood = () => {
+    const correctAnswer = parseInt(correctNumber);
+    const kai = correctAnswer * 5;
+    const all = parseInt(tests.length) * 5;
+    if ((kai / all) * 100 > 80) {
+      seToggleFlag(true);
+    }
+  };
+
+  const ScaleFadeEx = () => {
+    return (
+      <>
+        <ScaleFade initialScale={0.9} in={isOpen}>
+          <Box
+            p="40px"
+            color="white"
+            mt="4"
+            bg="teal.500"
+            rounded="md"
+            shadow="md"
+          >
+            Good!!!
+          </Box>
+        </ScaleFade>
+      </>
+    );
   };
 
   const { user } = useAuth();
@@ -42,7 +91,7 @@ export const Answer = () => {
         </p>
       </Box>
       <Center>
-        <HStack>
+        <HStack spacing={20}>
           <VStack spacing={12}>
             {flag === null ? (
               <Box></Box>
@@ -59,9 +108,12 @@ export const Answer = () => {
               })
             )}
           </VStack>
-          <Text>
-            {calc()} / {parseInt(tests.length) * 5}
-          </Text>
+          <VStack>
+            <Text fontSize="3xl">
+              {kais} / {parseInt(tests.length) * 5}
+            </Text>
+            {toggleFlag ? ScaleFadeEx() : null}
+          </VStack>
         </HStack>
       </Center>
     </>
