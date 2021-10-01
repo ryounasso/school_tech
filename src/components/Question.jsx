@@ -10,6 +10,8 @@ import {
   Spacer,
   Heading,
   Button,
+  useDisclosure,
+  ScaleFade,
 } from "@chakra-ui/react";
 import { addAnswer } from "../api/answerApi";
 import { getQuestionFilterdById } from "../api/questionApi";
@@ -20,6 +22,7 @@ export const Question = (props) => {
   const setCorrectNumber = props.correct;
   const [answer, setAnswer] = useState();
   const [isSubmit, setIsSubmit] = useState(false);
+  const { isOpen, onToggle } = useDisclosure();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +43,36 @@ export const Question = (props) => {
 
   const checkCorrect = (ans) => {
     if (ans === answer) {
-      window.alert("正解！");
+      onToggle();
       setCorrectNumber((prev) => prev + 1);
     }
+  };
+
+  const ScaleFadeEx = (message) => {
+    let color;
+    if (message === "正解") {
+      color = "green.300";
+    } else {
+      color = "blue.300";
+    }
+
+    return (
+      <>
+        <ScaleFade initialScale={0.1} in={isOpen}>
+          <Box
+            p="5px"
+            // w="30px"
+            color="white"
+            mt="4"
+            bg={color}
+            rounded="md"
+            shadow="md"
+          >
+            <i>{message}</i>
+          </Box>
+        </ScaleFade>
+      </>
+    );
   };
 
   return (
@@ -88,6 +118,7 @@ export const Question = (props) => {
             提出済み
           </Button>
         )}
+        {isOpen ? ScaleFadeEx("正解") : ScaleFadeEx("不正解")}
       </HStack>
     </VStack>
   );

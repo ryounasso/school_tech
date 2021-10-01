@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {Box, VStack, Heading, Center, HStack, Text, useDisclosure,
-  ScaleFade,} from "@chakra-ui/react";
+import {
+  Box,
+  VStack,
+  Heading,
+  Center,
+  HStack,
+  Text,
+  useDisclosure,
+  ScaleFade,
+} from "@chakra-ui/react";
 import { useAuth } from "../contexts/authContext";
 import { getQuestion } from "../api/questionApi";
 import { Question } from "./Question";
@@ -46,7 +54,7 @@ export const Answer = () => {
     const correctAnswer = parseInt(correctNumber);
     const kai = correctAnswer * 5;
     const all = parseInt(tests.length) * 5;
-    if ((kai / all) * 100 > 80) {
+    if ((kai / all) * 100 >= 80) {
       seToggleFlag(true);
     }
   };
@@ -75,8 +83,10 @@ export const Answer = () => {
 
   return (
     <>
-      <Center background={"cornflowerblue"} height={"200px"}>
-        <Heading><font size='7'>問題回答</font></Heading>
+      <Center background={"cornflowerblue"} height={"200px"} marginBottom={20}>
+        <Heading>
+          <font size="7">問題回答</font>
+        </Heading>
       </Center>
       <Box marginLeft="25px" marginTop="10px" marginBottom="15px">
         <p>
